@@ -21,7 +21,8 @@ export function isEmpty(array: Array): boolean;
 export function isSet(variable: any): boolean;
 
 /**
- * Round a number to the given precision
+ * Round a number to the given precision after the comma
+ * if the precision is negative, it will round the number to the given precision before the comma
  * @param number - The number to round
  * @param precision - The precision to use for the decimal part
  * @returns The rounded number

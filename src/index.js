@@ -1,5 +1,6 @@
 function isEmpty(array) {
-  return Array.isArray(array) && array.length === 0;
+  if (!Array.isArray(array)) throw new Error("The argument is not an array");
+  return array.length === 0;
 }
 
 function isSet(variable) {
@@ -14,7 +15,7 @@ function isSet(variable) {
   );
 }
 
-function average(array) {
+function average(array, round = 0) {
   if (isEmpty(array))
     throw new Error("The array is empty or it's not an array");
 
@@ -26,7 +27,7 @@ function average(array) {
     sum += typeof num === "string" ? Number(num) : num;
   }
 
-  return roundPrecisely(sum / array.length, 2);
+  return round ? roundPrecisely(sum / array.length, round) : sum / array.length;
 }
 
 function roundPrecisely(number, precision) {
