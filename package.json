@@ -5,7 +5,7 @@
   "main": "index.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "jsimlify_test": "node test/index.test.js"
+    "jsimplify_test": "node test/index.test.js"
   },
   "repository": {
     "type": "git",
