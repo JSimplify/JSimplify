@@ -1,5 +1,8 @@
 # JSimplify
 
+![JSimplify logo](https://github.com/JSimplify/JSimplify/assets/96381087/024094d1-3896-417d-a819-558a7c270dca)
+
+
 JSimplify : additionnal functions and javascript improvements.
 
 ## Main Objectives
