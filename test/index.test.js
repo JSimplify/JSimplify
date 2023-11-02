@@ -1,5 +1,6 @@
 const assert = require("assert");
-const { average, isEmpty, isSet, roundPrecisely } = require("../src");
+const { average, isEmpty, isSet, roundPrecisely, areSet } = require("../src");
+const areSetFixtures = require("./areSet.fixtures");
 
 let totalTests = 0;
 let passedTests = 0;
@@ -96,6 +97,9 @@ console.log("\n\x1b[90m\x1b[1m--- TEST for the isSet function ---\x1b[0m");
 tryTest("\"test\" should be set", () => isSet("test"), true);
 tryTest("\"\" should be set", () => isSet(""), true);
 tryTest("\" \" should be set", () => isSet(" "), true);
+tryTest("\"0\" should be set", () => isSet("0"), true);
+tryTest("\"1\" should be set", () => isSet("1"), true);
+tryTest("\"Infinity\" should be set", () => isSet("Infinity"), true);
 tryTest("0 should be set", () => isSet(0), true);
 tryTest("1 should be set", () => isSet(1), true);
 tryTest("Infinity should be set", () => isSet(Infinity), true);
@@ -106,6 +110,44 @@ tryTest("false should be set", () => isSet(false), true);
 tryTest("true should be set", () => isSet(true), true);
 tryTest("null should not be set", () => isSet(null), false);
 tryTest("undefined should not be set", () => isSet(undefined), false);
+
+
+// TEST for the areSet function with static set to true
+console.log("\n\x1b[90m\x1b[1m--- TEST for the areSet function with static arg set to true ---\x1b[0m");
+for(let i = 0; i < areSetFixtures.length; i++) {
+  const iCurrent = areSetFixtures[i];
+  const iDisplayed = ["string", "number", "boolean", "object"].includes(typeof iCurrent.value) && iCurrent.value !== null || Array.isArray() ? iCurrent.value.asString() : iCurrent.value;
+
+  for(let j = 0; j < areSetFixtures.length; j++) {
+    const jCurrent = areSetFixtures[j];
+    const jDisplayed = ["string", "number", "boolean", "object"].includes(typeof jCurrent.value) && jCurrent.value !== null || Array.isArray() ? jCurrent.value.asString() : jCurrent.value;
+
+    tryTest(
+      `${iDisplayed} and ${jDisplayed} should ${iCurrent.isSet && jCurrent.isSet ? "return set" : "return not set"}`,
+      () => areSet(true, iCurrent.value, jCurrent.value),
+      iCurrent.isSet && jCurrent.isSet
+    );
+  }
+}
+
+
+// TEST for the areSet function with static set to false
+console.log("\n\x1b[90m\x1b[1m--- TEST for the areSet function with static arg set to false ---\x1b[0m");
+for(let i = 0; i < areSetFixtures.length; i++) {
+  const iCurrent = areSetFixtures[i];
+  const iDisplayed = ["string", "number", "boolean", "object"].includes(typeof iCurrent.value) && iCurrent.value !== null || Array.isArray() ? iCurrent.value.asString() : iCurrent.value;
+
+  for(let j = 0; j < areSetFixtures.length; j++) {
+    const jCurrent = areSetFixtures[j];
+    const jDisplayed = ["string", "number", "boolean", "object"].includes(typeof jCurrent.value) && jCurrent.value !== null || Array.isArray() ? jCurrent.value.asString() : jCurrent.value;
+
+    tryTest(
+      `${iDisplayed} and ${jDisplayed} should ${iCurrent.isSet || jCurrent.isSet ? "return set" : "return not set"}`,
+      () => areSet(false, iCurrent.value, jCurrent.value),
+      iCurrent.isSet || jCurrent.isSet
+    );
+  }
+}
 
 
 // TEST for the roundPrecisely function

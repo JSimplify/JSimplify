@@ -10,6 +10,51 @@ function isSet(variable) {
   );
 }
 
+function areSet(strict = true, ...variables) {
+  if(!strict) return variables.some(variable => isSet(variable));
+  else return variables.every(variable => isSet(variable));
+}
+
+/**
+ * Transform a string into a string.
+ * @returns - A string
+ */
+String.prototype.asString = function () {
+  return JSON.stringify(this);
+}
+
+/**
+ * Transform a boolean into a string.
+ * @returns - A string
+ */
+Boolean.prototype.asString = function () {
+  return `"${JSON.stringify(this)}"`;
+}
+
+/**
+ * Transform a number into a string.
+ * @returns - A string
+ */
+Number.prototype.asString = function () {
+  return `"${JSON.stringify(this)}"`;
+}
+
+/**
+ * Transform an array into a string.
+ * @returns - A string
+ */
+Array.prototype.asString = function () {
+  return JSON.stringify(this);
+}
+
+/**
+ * Transform an object into a string.
+ * @returns - A string
+ */
+Object.prototype.asString = function () {
+  return JSON.stringify(this);
+}
+
 function average(array, round = 0) {
   if (isEmpty(array))
     throw new Error("The array is empty or it's not an array");
@@ -34,5 +79,6 @@ module.exports = {
   average: average,
   isEmpty: isEmpty,
   isSet: isSet,
+  areSet: areSet,
   roundPrecisely: roundPrecisely,
 };

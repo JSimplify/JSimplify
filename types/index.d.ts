@@ -10,9 +10,19 @@ export function average(array: Array): number;
  * Determine if the given variable is set or not.
  * *Checks `undefined` and `null`*.
  * @param variable - The variable to check.
- * @returns True if the variable is set, false otherwise.
+ * @returns `true` if the variable is set, `false` otherwise.
  */
 export function isSet(variable: any): boolean;
+
+/**
+ * Determine if the given variables are set or not.
+ * *Checks `undefined` and `null`*.
+ * @param strict - Check if **all** the variable are set or **at least one**.
+ * @param variables - The variables to check.
+ * @returns - If `strict` is set to `true`, `true` if the **all** the variables are set, `false` otherwise.
+ * - If `strict` is set to `false`, `true` if **at least one** of the variables is set, `false` otherwise.
+ */
+export function areSet(strict: boolean = true, ...variables: any): boolean;
 
 /**
  * Check if the given array is empty or not
