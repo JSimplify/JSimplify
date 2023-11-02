@@ -29,7 +29,15 @@ Here is a list of all the functions present in this project. The list is divided
 
 ## How to use
 
-// Explain how to install
+### Installation
+
+
+### Tests
+
+In a terminal, run the following command
+```
+npm run jsimplify_tests
+```
 
 ## Issues & Pull requests
 

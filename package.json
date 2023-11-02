@@ -1,11 +1,11 @@
 {
   "name": "jsimplify",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Additionnal functions and Js improvement",
   "main": "index.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "jsimplify_test": "node test/index.test.js"
+    "jsimplify_tests": "node test/index.test.js"
   },
   "repository": {
     "type": "git",

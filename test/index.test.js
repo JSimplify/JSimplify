@@ -35,7 +35,11 @@ function tryTest(message, testFunction, expectedValue, expectedError) {
 // TEST for the average function
 console.log("\x1b[90m\x1b[1m--- TEST for the average function ---\x1b[0m");
 
-tryTest("Test with array of numbers", () => average([1, 3, 4, 5]), 3.25);
+tryTest(
+  "Test with array of numbers",
+  () => average([1, 3, 4, 5]),
+  3.25
+);
 tryTest(
   "Test with array of numbers and string",
   () => average([1, 3, 4, 5, "5"]),
@@ -89,14 +93,20 @@ tryTest(
 
 // TEST for the isSet function
 console.log("\n\x1b[90m\x1b[1m--- TEST for the isSet function ---\x1b[0m");
-tryTest("Test with string", () => isSet("test"), true);
-tryTest("Test with number", () => isSet(1), true);
-tryTest("Test with NaN", () => isSet(NaN), false);
-tryTest("Test with null", () => isSet(null), false);
-tryTest("Test with undefined", () => isSet(undefined), false);
-tryTest("Test with empty string", () => isSet(""), false);
-tryTest("Test with 0", () => isSet(0), false);
-tryTest("Test with false", () => isSet(false), false);
+tryTest("\"test\" should be set", () => isSet("test"), true);
+tryTest("\"\" should be set", () => isSet(""), true);
+tryTest("\" \" should be set", () => isSet(" "), true);
+tryTest("0 should be set", () => isSet(0), true);
+tryTest("1 should be set", () => isSet(1), true);
+tryTest("Infinity should be set", () => isSet(Infinity), true);
+tryTest("NaN should be set", () => isSet(NaN), true);
+tryTest("[] should be set", () => isSet([]), true);
+tryTest("{} should be set", () => isSet({}), true);
+tryTest("false should be set", () => isSet(false), true);
+tryTest("true should be set", () => isSet(true), true);
+tryTest("null should not be set", () => isSet(null), false);
+tryTest("undefined should not be set", () => isSet(undefined), false);
+
 
 // TEST for the roundPrecisely function
 console.log(

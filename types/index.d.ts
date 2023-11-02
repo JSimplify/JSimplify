@@ -7,18 +7,19 @@
 export function average(array: Array): number;
 
 /**
+ * Determine if the given variable is set or not.
+ * *Checks `undefined` and `null`*.
+ * @param variable - The variable to check.
+ * @returns True if the variable is set, false otherwise.
+ */
+export function isSet(variable: any): boolean;
+
+/**
  * Check if the given array is empty or not
  * @param array - The array to check
  * @returns True if the array is empty, false otherwise
  */
 export function isEmpty(array: Array): boolean;
-
-/**
- * Determine if the given variable is set or not
- * @param variable - The variable to check
- * @returns True if the variable is set, false otherwise
- */
-export function isSet(variable: any): boolean;
 
 /**
  * Round a number to the given precision after the comma

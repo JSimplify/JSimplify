@@ -4,14 +4,9 @@ function isEmpty(array) {
 }
 
 function isSet(variable) {
-  if (typeof variable === "number" && isNaN(variable)) return false;
-
   return (
     variable !== undefined &&
-    variable !== null &&
-    variable !== "" &&
-    variable !== 0 &&
-    variable !== false
+    variable !== null
   );
 }
 
