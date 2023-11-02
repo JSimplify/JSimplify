@@ -28,7 +28,7 @@ String.prototype.asString = function () {
  * @returns - A string
  */
 Boolean.prototype.asString = function () {
-  return `"${JSON.stringify(this)}"`;
+  return `${JSON.stringify(this)}`;
 }
 
 /**
@@ -36,7 +36,7 @@ Boolean.prototype.asString = function () {
  * @returns - A string
  */
 Number.prototype.asString = function () {
-  return `"${JSON.stringify(this)}"`;
+  return `${JSON.stringify(this)}`;
 }
 
 /**
