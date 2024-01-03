@@ -1,6 +1,6 @@
 {
   "name": "jsimplify",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Additionnal functions and Js improvement",
   "main": "src/index.js",
   "types": "types/index.d.ts",
