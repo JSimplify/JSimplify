@@ -33,111 +33,22 @@ function tryTest(message, testFunction, expectedValue, expectedError) {
   }
 }
 
-// TEST for the average function
-console.log("\x1b[90m\x1b[1m--- TEST for the average function ---\x1b[0m");
-
-tryTest(
-  "Test with array of numbers",
-  () => average([1, 3, 4, 5]),
-  3.25
-);
-tryTest(
-  "Test with array of numbers and string",
-  () => average([1, 3, 4, 5, "5"]),
-  3.6
-);
-tryTest(
-  "Test with array of decimal (rounded on 2 digits)",
-  () => average([1, 3, 4, 5.5], 2),
-  3.38
-);
-tryTest(
-  "Test with array of decimal (rounded off)",
-  () => average([1, 3, 4, 5.5], 0),
-  3.375
-);
-tryTest(
-  "Test with mixed types",
-  () => average([1, 3, 4, 5, true, [], "ok"]),
-  null,
-  "The array must contain only numbers"
-);
-tryTest(
-  "Test with empty array",
-  () => average([]),
-  null,
-  "The array is empty or it's not an array"
-);
 
 // TEST for the isEmpty function
 console.log("\n\x1b[90m\x1b[1m--- TEST for the isEmpty function ---\x1b[0m");
-tryTest("Test with empty array",
-  () => {
-    const array = []
-    return array.isEmpty()
-  },
-  true
-);
-tryTest("Test with non-empty array",
-  () => {
-    const array = [1, 2, 3];
-    // const array = ["toto", "tata"];
-    return array.isEmpty();
-  },
-  false
-);
-tryTest(
-  "Test with empty object",
-  () => ({}).isEmpty(),
-  true
-);
-tryTest(
-  "Test with non-empty object",
-  () => ({toto: "non"}).isEmpty(),
-  false
-);
-tryTest(
-  "Test with empty string",
-  () => "".isEmpty(),
-  true,
-  "Cannot read properties of null (reading 'isEmpty')"
-);
-tryTest(
-  "Test with non-empty string",
-  () => "test".isEmpty(),
-  false,
-  "Cannot read properties of null (reading 'isEmpty')"
-);
-tryTest(
-  "Test with number",
-  () => (2).isEmpty(),
-  false,
-  "Cannot read properties of null (reading 'isEmpty')"
-);
-tryTest(
-  "Test with NaN",
-  () => NaN.isEmpty(),
-  false,
-  "Cannot read properties of null (reading 'isEmpty')"
-);
-tryTest(
-  "Test with boolean",
-  () => true.isEmpty(),
-  false,
-  "Cannot read properties of null (reading 'isEmpty')"
-);
-tryTest(
-  "Test with null",
-  () => (null).isEmpty(),
-  null,
-  "Cannot read properties of null (reading 'isEmpty')"
-);
-tryTest(
-  "Test with undefined",
-  () => (undefined).isEmpty(),
-  undefined,
-  "Cannot read properties of undefined (reading 'isEmpty')"
-);
+tryTest("Test with []", () => [].isEmpty(), true);
+tryTest("Test with [\"toto\", 2, true, undefined, null]", () => ["toto", 2, true, undefined, null].isEmpty(), false);
+tryTest("Test with {}",() => ({}).isEmpty(), true);
+tryTest("Test with {toto: \"non\"}", () => ({toto: "non"}).isEmpty(), false);
+tryTest("Test with \"\"", () => "".isEmpty(), true);
+tryTest("Test with \" \"", () => " ".isEmpty(), false);
+tryTest("Test with \"test\"", () => "test".isEmpty(), false);
+tryTest("Test with 2", () => (2).isEmpty(), false);
+tryTest("Test with NaN", () => NaN.isEmpty(), false);
+tryTest("Test with true", () => true.isEmpty(), false);
+tryTest("Test with null", () => (null).isEmpty(), null, "Cannot read properties of null (reading 'isEmpty')");
+tryTest("Test with undefined", () => (undefined).isEmpty(), undefined, "Cannot read properties of undefined (reading 'isEmpty')");
+
 
 // TEST for the isSet function
 console.log("\n\x1b[90m\x1b[1m--- TEST for the isSet function ---\x1b[0m");
@@ -197,10 +108,40 @@ for(let i = 0; i < areSetFixtures.length; i++) {
 }
 
 
+// TEST for the asString function
+console.log("\n\x1b[90m\x1b[1m--- TEST for the asString function ---\x1b[0m");
+const string = "toto";
+const stringAsString = "toto";
+const boolean = true;
+const booleanAsString = "true";
+const number = 2;
+const numberAsString = "2";
+const array = ["tata", false, 3, null, undefined, {}, {titi: "a"}, [], ["b"]];
+const arrayAsString = '["tata",false,3,null,null,{},{"titi":"a"},[],["b"]]';
+const object = {test: "c"};
+const objectAsString = '{"test":"c"}';
+
+tryTest("Test with \"toto\"", () => string.asString(), stringAsString);
+tryTest("Test with true", () => boolean.asString(), booleanAsString);
+tryTest("Test with 2", () => number.asString(), numberAsString);
+tryTest("Test with [\"tata\", false, 3, null, undefined, {}, {titi: \"a\"}, [], [\"b\"]]", () => array.asString(), arrayAsString);
+tryTest("Test with {test: \"c\"}", () => object.asString(), objectAsString);
+tryTest("Test with null", () => (null).asString(), null, "Cannot read properties of null (reading 'asString')");
+tryTest("Test with undefined", () => (undefined).asString(), undefined, "Cannot read properties of undefined (reading 'asString')");
+
+
+// TEST for the average function
+console.log("\n\x1b[90m\x1b[1m--- TEST for the average function ---\x1b[0m");
+tryTest("Test with array of numbers", () => average([1, 3, 4, 5]), 3.25);
+tryTest("Test with array of numbers and string", () => average([1, 3, 4, 5, "5"]), 3.6);
+tryTest("Test with array of decimal (rounded on 2 digits)", () => average([1, 3, 4, 5.5], 2), 3.38);
+tryTest("Test with array of decimal (rounded off)", () => average([1, 3, 4, 5.5], 0), 3.375);
+tryTest("Test with mixed types", () => average([1, 3, 4, 5, true, [], "ok"]), null, "The array must contain only numbers");
+tryTest("Test with empty array", () => average([]), null, "The array is empty or it's not an array");
+
+
 // TEST for the roundPrecisely function
-console.log(
-  "\n\x1b[90m\x1b[1m--- TEST for the roundPrecisely function ---\x1b[0m"
-);
+console.log("\n\x1b[90m\x1b[1m--- TEST for the roundPrecisely function ---\x1b[0m");
 tryTest("Test with 1.2345 and 2", () => roundPrecisely(1.2345, 2), 1.23);
 tryTest("Test with 1.235 and 2", () => roundPrecisely(1.235, 2), 1.24);
 tryTest("Test with 1.2345 and 3", () => roundPrecisely(1.2345, 3), 1.235);

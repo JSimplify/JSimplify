@@ -27,43 +27,19 @@ function areSet(strict = true, ...variables) {
 }
 
 /**
- * Transform a string into a string.
- * @returns - A string
- */
-String.prototype.asString = function () {
-  return JSON.stringify(this);
-}
-
-/**
- * Transform a boolean into a string.
- * @returns - A string
- */
-Boolean.prototype.asString = function () {
-  return `${JSON.stringify(this)}`;
-}
-
-/**
- * Transform a number into a string.
- * @returns - A string
- */
-Number.prototype.asString = function () {
-  return `${JSON.stringify(this)}`;
-}
-
-/**
- * Transform an array into a string.
- * @returns - A string
- */
-Array.prototype.asString = function () {
-  return JSON.stringify(this);
-}
-
-/**
- * Transform an object into a string.
+ * Convert the given variable into a string.
  * @returns - A string
  */
 Object.prototype.asString = function () {
-  return JSON.stringify(this);
+  if(this instanceof String) {
+    return this.toString();
+  }
+  else if(this instanceof Number || this instanceof Boolean) {
+    return `${this}`;
+  }
+  else {
+    return JSON.stringify(this);
+  }
 }
 
 function average(array, round = 0) {
