@@ -25,13 +25,6 @@ export function isSet(variable: any): boolean;
 export function areSet(strict: boolean = true, ...variables: any): boolean;
 
 /**
- * Check if the given array is empty or not
- * @param array - The array to check
- * @returns True if the array is empty, false otherwise
- */
-export function isEmpty(array: Array): boolean;
-
-/**
  * Round a number to the given precision after the comma
  * if the precision is negative, it will round the number to the given precision before the comma
  * @param number - The number to round
