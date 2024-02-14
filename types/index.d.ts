@@ -14,7 +14,7 @@ export function isSet(variable: any): boolean;
  * @returns - If `strict` is set to `true`, `true` if the **all** the variables are set, `false` otherwise.
  * - If `strict` is set to `false`, `true` if **at least one** of the variables is set, `false` otherwise.
  */
-export function areSet(strict: boolean = true, ...variables: any): boolean;
+export function areSet(strict: boolean, ...variables: any): boolean;
 
 /**
  * Calculate the average value of an array of numbers,
@@ -25,8 +25,7 @@ export function areSet(strict: boolean = true, ...variables: any): boolean;
 export function average(array: Array): number;
 
 /**
- * Round a number to the given precision after the comma
- * if the precision is negative, it will round the number to the given precision before the comma
+ * Round a number to the given precision.
  * @param number - The number to round
  * @param precision - The precision to use for the decimal part
  * @returns The rounded number
