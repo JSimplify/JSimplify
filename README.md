@@ -9,6 +9,24 @@ JSimplify : additionnal functions and javascript improvements.
 
 The main objective for this project is to provide additionnal functions to javascript and to rewrite native function in order to improve them.
 
+
+## How to use
+
+### Installation
+
+In a terminal, run the following command
+```Bash
+npm install jsimplify
+```
+
+### Tests
+
+In a terminal, run the following command
+```Bash
+npm run jsimplify_tests
+```
+
+
 ## Key Features
 
 Here is a list of all the functions present in this project. The list is divided into two parts, the first one concerns the new functions, and the second one, the JavaScript functions that we have rewritten.
@@ -28,23 +46,6 @@ Here is a list of all the functions present in this project. The list is divided
 |:---------|:------------|:------|
 | Object.prototype.isEmpty() | Determine if the variable is emptyu.<br>**[], {}, or ""**. | `[].isEmpty()` |
 | Object.prototype.asString() | Convert the variable into a string. | `{toto: "test"}.asString()` |
-
-
-## How to use
-
-### Installation
-
-In a terminal, run the following command
-```Bash
-npm install jsimplify
-```
-
-### Tests
-
-In a terminal, run the following command
-```Bash
-npm run jsimplify_tests
-```
 
 
 ## Issues & Pull requests
