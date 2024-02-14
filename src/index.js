@@ -56,13 +56,15 @@ Object.prototype.asString = function () {
 }
 
 function average(array, round = 0) {
-  if (isEmpty(array))
+  if(isEmpty(array)) {
     throw new Error("The array is empty or it's not an array");
+  }
 
   let sum = 0;
-  for (const num of array) {
-    if (!isSet(num) || (typeof num === "string" && isNaN(Number(num))))
+  for(const num of array) {
+    if(!isSet(num) || (typeof num === "string" && isNaN(Number(num)))) {
       throw new Error("The array must contain only numbers");
+    }
 
     sum += typeof num === "string" ? Number(num) : num;
   }
