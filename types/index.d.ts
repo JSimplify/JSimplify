@@ -1,12 +1,4 @@
 /**
- * Calculate the average value of an array of numbers,
- * it uses isEmpty and isSet to check if the array is correct
- * @param array - The array of numbers
- * @returns The average value
- */
-export function average(array: Array): number;
-
-/**
  * Determine if the given variable is set or not.
  * *Checks `undefined` and `null`*.
  * @param variable - The variable to check.
@@ -23,6 +15,14 @@ export function isSet(variable: any): boolean;
  * - If `strict` is set to `false`, `true` if **at least one** of the variables is set, `false` otherwise.
  */
 export function areSet(strict: boolean = true, ...variables: any): boolean;
+
+/**
+ * Calculate the average value of an array of numbers,
+ * it uses isEmpty and isSet to check if the array is correct
+ * @param array - The array of numbers
+ * @returns The average value
+ */
+export function average(array: Array): number;
 
 /**
  * Round a number to the given precision after the comma
