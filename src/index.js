@@ -1,6 +1,17 @@
-function isEmpty(array) {
-  if (!Array.isArray(array)) throw new Error("The argument is not an array");
-  return array.length === 0;
+/**
+ * Determine if the given variable is empty.
+ * @returns {Boolean} - A Boolean
+ */
+Object.prototype.isEmpty = function () {
+  if(this instanceof Number || this instanceof Boolean) {
+    return false;
+  }
+  else if(this instanceof Array || this instanceof String) {
+    return this.length === 0;
+  }
+  else {
+    return Object.keys(this).length === 0;
+  }
 }
 
 function isSet(variable) {
@@ -56,7 +67,7 @@ Object.prototype.asString = function () {
 }
 
 function average(array, round = 0) {
-  if(isEmpty(array)) {
+  if(array.isEmpty()) {
     throw new Error("The array is empty or it's not an array");
   }
 
@@ -79,7 +90,6 @@ function roundPrecisely(number, precision) {
 
 module.exports = {
   average: average,
-  isEmpty: isEmpty,
   isSet: isSet,
   areSet: areSet,
   roundPrecisely: roundPrecisely,
