@@ -1,5 +1,5 @@
 const assert = require("assert");
-const { average, isEmpty, isSet, roundPrecisely, areSet } = require("../src");
+const { average, isSet, roundPrecisely, areSet } = require("../src");
 const areSetFixtures = require("./areSet.fixtures");
 
 let totalTests = 0;
@@ -71,25 +71,72 @@ tryTest(
 
 // TEST for the isEmpty function
 console.log("\n\x1b[90m\x1b[1m--- TEST for the isEmpty function ---\x1b[0m");
-tryTest("Test with empty array", () => isEmpty([]), true);
-tryTest("Test with non-empty array", () => isEmpty([1, 2, 3]), false);
+tryTest("Test with empty array",
+  () => {
+    const array = []
+    return array.isEmpty()
+  },
+  true
+);
+tryTest("Test with non-empty array",
+  () => {
+    const array = [1, 2, 3];
+    // const array = ["toto", "tata"];
+    return array.isEmpty();
+  },
+  false
+);
 tryTest(
-  "Test with string",
-  () => isEmpty("test"),
-  null,
-  "The argument is not an array"
+  "Test with empty object",
+  () => ({}).isEmpty(),
+  true
+);
+tryTest(
+  "Test with non-empty object",
+  () => ({toto: "non"}).isEmpty(),
+  false
+);
+tryTest(
+  "Test with empty string",
+  () => "".isEmpty(),
+  true,
+  "Cannot read properties of null (reading 'isEmpty')"
+);
+tryTest(
+  "Test with non-empty string",
+  () => "test".isEmpty(),
+  false,
+  "Cannot read properties of null (reading 'isEmpty')"
 );
 tryTest(
   "Test with number",
-  () => isEmpty(1),
-  null,
-  "The argument is not an array"
+  () => (2).isEmpty(),
+  false,
+  "Cannot read properties of null (reading 'isEmpty')"
 );
 tryTest(
   "Test with NaN",
-  () => isEmpty(NaN),
+  () => NaN.isEmpty(),
+  false,
+  "Cannot read properties of null (reading 'isEmpty')"
+);
+tryTest(
+  "Test with boolean",
+  () => true.isEmpty(),
+  false,
+  "Cannot read properties of null (reading 'isEmpty')"
+);
+tryTest(
+  "Test with null",
+  () => (null).isEmpty(),
   null,
-  "The argument is not an array"
+  "Cannot read properties of null (reading 'isEmpty')"
+);
+tryTest(
+  "Test with undefined",
+  () => (undefined).isEmpty(),
+  undefined,
+  "Cannot read properties of undefined (reading 'isEmpty')"
 );
 
 // TEST for the isSet function
