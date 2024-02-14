@@ -36,15 +36,16 @@ function tryTest(message, testFunction, expectedValue, expectedError) {
 
 // TEST for the isEmpty function
 console.log("\n\x1b[90m\x1b[1m--- TEST for the isEmpty function ---\x1b[0m");
-tryTest("Test with empty array", () => [].isEmpty(), true);
-tryTest("Test with non-empty array", () => ["toto", 2, true, undefined, null].isEmpty(), false);
-tryTest("Test with empty object",() => ({}).isEmpty(), true);
-tryTest("Test with non-empty object", () => ({toto: "non"}).isEmpty(), false);
-tryTest("Test with empty string", () => "".isEmpty(), true);
-tryTest("Test with non-empty string", () => "test".isEmpty(), false);
-tryTest("Test with number", () => (2).isEmpty(), false);
+tryTest("Test with []", () => [].isEmpty(), true);
+tryTest("Test with [\"toto\", 2, true, undefined, null]", () => ["toto", 2, true, undefined, null].isEmpty(), false);
+tryTest("Test with {}",() => ({}).isEmpty(), true);
+tryTest("Test with {toto: \"non\"}", () => ({toto: "non"}).isEmpty(), false);
+tryTest("Test with \"\"", () => "".isEmpty(), true);
+tryTest("Test with \" \"", () => " ".isEmpty(), false);
+tryTest("Test with \"test\"", () => "test".isEmpty(), false);
+tryTest("Test with 2", () => (2).isEmpty(), false);
 tryTest("Test with NaN", () => NaN.isEmpty(), false);
-tryTest("Test with boolean", () => true.isEmpty(), false);
+tryTest("Test with true", () => true.isEmpty(), false);
 tryTest("Test with null", () => (null).isEmpty(), null, "Cannot read properties of null (reading 'isEmpty')");
 tryTest("Test with undefined", () => (undefined).isEmpty(), undefined, "Cannot read properties of undefined (reading 'isEmpty')");
 
@@ -108,7 +109,7 @@ for(let i = 0; i < areSetFixtures.length; i++) {
 
 
 // TEST for the average function
-console.log("\x1b[90m\x1b[1m--- TEST for the average function ---\x1b[0m");
+console.log("\n\x1b[90m\x1b[1m--- TEST for the average function ---\x1b[0m");
 tryTest("Test with array of numbers", () => average([1, 3, 4, 5]), 3.25);
 tryTest("Test with array of numbers and string", () => average([1, 3, 4, 5, "5"]), 3.6);
 tryTest("Test with array of decimal (rounded on 2 digits)", () => average([1, 3, 4, 5.5], 2), 3.38);
