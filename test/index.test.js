@@ -33,14 +33,6 @@ function tryTest(message, testFunction, expectedValue, expectedError) {
   }
 }
 
-// TEST for the average function
-console.log("\x1b[90m\x1b[1m--- TEST for the average function ---\x1b[0m");
-tryTest("Test with array of numbers", () => average([1, 3, 4, 5]), 3.25);
-tryTest("Test with array of numbers and string", () => average([1, 3, 4, 5, "5"]), 3.6);
-tryTest("Test with array of decimal (rounded on 2 digits)", () => average([1, 3, 4, 5.5], 2), 3.38);
-tryTest("Test with array of decimal (rounded off)", () => average([1, 3, 4, 5.5], 0), 3.375);
-tryTest("Test with mixed types", () => average([1, 3, 4, 5, true, [], "ok"]), null, "The array must contain only numbers");
-tryTest("Test with empty array", () => average([]), null, "The array is empty or it's not an array");
 
 // TEST for the isEmpty function
 console.log("\n\x1b[90m\x1b[1m--- TEST for the isEmpty function ---\x1b[0m");
@@ -55,6 +47,7 @@ tryTest("Test with NaN", () => NaN.isEmpty(), false);
 tryTest("Test with boolean", () => true.isEmpty(), false);
 tryTest("Test with null", () => (null).isEmpty(), null, "Cannot read properties of null (reading 'isEmpty')");
 tryTest("Test with undefined", () => (undefined).isEmpty(), undefined, "Cannot read properties of undefined (reading 'isEmpty')");
+
 
 // TEST for the isSet function
 console.log("\n\x1b[90m\x1b[1m--- TEST for the isSet function ---\x1b[0m");
@@ -112,6 +105,16 @@ for(let i = 0; i < areSetFixtures.length; i++) {
     );
   }
 }
+
+
+// TEST for the average function
+console.log("\x1b[90m\x1b[1m--- TEST for the average function ---\x1b[0m");
+tryTest("Test with array of numbers", () => average([1, 3, 4, 5]), 3.25);
+tryTest("Test with array of numbers and string", () => average([1, 3, 4, 5, "5"]), 3.6);
+tryTest("Test with array of decimal (rounded on 2 digits)", () => average([1, 3, 4, 5.5], 2), 3.38);
+tryTest("Test with array of decimal (rounded off)", () => average([1, 3, 4, 5.5], 0), 3.375);
+tryTest("Test with mixed types", () => average([1, 3, 4, 5, true, [], "ok"]), null, "The array must contain only numbers");
+tryTest("Test with empty array", () => average([]), null, "The array is empty or it's not an array");
 
 
 // TEST for the roundPrecisely function
