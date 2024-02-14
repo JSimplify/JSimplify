@@ -35,109 +35,26 @@ function tryTest(message, testFunction, expectedValue, expectedError) {
 
 // TEST for the average function
 console.log("\x1b[90m\x1b[1m--- TEST for the average function ---\x1b[0m");
-
-tryTest(
-  "Test with array of numbers",
-  () => average([1, 3, 4, 5]),
-  3.25
-);
-tryTest(
-  "Test with array of numbers and string",
-  () => average([1, 3, 4, 5, "5"]),
-  3.6
-);
-tryTest(
-  "Test with array of decimal (rounded on 2 digits)",
-  () => average([1, 3, 4, 5.5], 2),
-  3.38
-);
-tryTest(
-  "Test with array of decimal (rounded off)",
-  () => average([1, 3, 4, 5.5], 0),
-  3.375
-);
-tryTest(
-  "Test with mixed types",
-  () => average([1, 3, 4, 5, true, [], "ok"]),
-  null,
-  "The array must contain only numbers"
-);
-tryTest(
-  "Test with empty array",
-  () => average([]),
-  null,
-  "The array is empty or it's not an array"
-);
+tryTest("Test with array of numbers", () => average([1, 3, 4, 5]), 3.25);
+tryTest("Test with array of numbers and string", () => average([1, 3, 4, 5, "5"]), 3.6);
+tryTest("Test with array of decimal (rounded on 2 digits)", () => average([1, 3, 4, 5.5], 2), 3.38);
+tryTest("Test with array of decimal (rounded off)", () => average([1, 3, 4, 5.5], 0), 3.375);
+tryTest("Test with mixed types", () => average([1, 3, 4, 5, true, [], "ok"]), null, "The array must contain only numbers");
+tryTest("Test with empty array", () => average([]), null, "The array is empty or it's not an array");
 
 // TEST for the isEmpty function
 console.log("\n\x1b[90m\x1b[1m--- TEST for the isEmpty function ---\x1b[0m");
-tryTest("Test with empty array",
-  () => {
-    const array = []
-    return array.isEmpty()
-  },
-  true
-);
-tryTest("Test with non-empty array",
-  () => {
-    const array = [1, 2, 3];
-    // const array = ["toto", "tata"];
-    return array.isEmpty();
-  },
-  false
-);
-tryTest(
-  "Test with empty object",
-  () => ({}).isEmpty(),
-  true
-);
-tryTest(
-  "Test with non-empty object",
-  () => ({toto: "non"}).isEmpty(),
-  false
-);
-tryTest(
-  "Test with empty string",
-  () => "".isEmpty(),
-  true,
-  "Cannot read properties of null (reading 'isEmpty')"
-);
-tryTest(
-  "Test with non-empty string",
-  () => "test".isEmpty(),
-  false,
-  "Cannot read properties of null (reading 'isEmpty')"
-);
-tryTest(
-  "Test with number",
-  () => (2).isEmpty(),
-  false,
-  "Cannot read properties of null (reading 'isEmpty')"
-);
-tryTest(
-  "Test with NaN",
-  () => NaN.isEmpty(),
-  false,
-  "Cannot read properties of null (reading 'isEmpty')"
-);
-tryTest(
-  "Test with boolean",
-  () => true.isEmpty(),
-  false,
-  "Cannot read properties of null (reading 'isEmpty')"
-);
-tryTest(
-  "Test with null",
-  () => (null).isEmpty(),
-  null,
-  "Cannot read properties of null (reading 'isEmpty')"
-);
-tryTest(
-  "Test with undefined",
-  () => (undefined).isEmpty(),
-  undefined,
-  "Cannot read properties of undefined (reading 'isEmpty')"
-);
+tryTest("Test with empty array", () => [].isEmpty(), true);
+tryTest("Test with non-empty array", () => ["toto", 2, true, undefined, null].isEmpty(), false);
+tryTest("Test with empty object",() => ({}).isEmpty(), true);
+tryTest("Test with non-empty object", () => ({toto: "non"}).isEmpty(), false);
+tryTest("Test with empty string", () => "".isEmpty(), true);
+tryTest("Test with non-empty string", () => "test".isEmpty(), false);
+tryTest("Test with number", () => (2).isEmpty(), false);
+tryTest("Test with NaN", () => NaN.isEmpty(), false);
+tryTest("Test with boolean", () => true.isEmpty(), false);
+tryTest("Test with null", () => (null).isEmpty(), null, "Cannot read properties of null (reading 'isEmpty')");
+tryTest("Test with undefined", () => (undefined).isEmpty(), undefined, "Cannot read properties of undefined (reading 'isEmpty')");
 
 // TEST for the isSet function
 console.log("\n\x1b[90m\x1b[1m--- TEST for the isSet function ---\x1b[0m");
@@ -198,9 +115,7 @@ for(let i = 0; i < areSetFixtures.length; i++) {
 
 
 // TEST for the roundPrecisely function
-console.log(
-  "\n\x1b[90m\x1b[1m--- TEST for the roundPrecisely function ---\x1b[0m"
-);
+console.log("\n\x1b[90m\x1b[1m--- TEST for the roundPrecisely function ---\x1b[0m");
 tryTest("Test with 1.2345 and 2", () => roundPrecisely(1.2345, 2), 1.23);
 tryTest("Test with 1.235 and 2", () => roundPrecisely(1.235, 2), 1.24);
 tryTest("Test with 1.2345 and 3", () => roundPrecisely(1.2345, 3), 1.235);
