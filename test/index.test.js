@@ -108,6 +108,28 @@ for(let i = 0; i < areSetFixtures.length; i++) {
 }
 
 
+// TEST for the asString function
+console.log("\n\x1b[90m\x1b[1m--- TEST for the asString function ---\x1b[0m");
+const string = "toto";
+const stringAsString = "toto";
+const boolean = true;
+const booleanAsString = "true";
+const number = 2;
+const numberAsString = "2";
+const array = ["tata", false, 3, null, undefined, {}, {titi: "a"}, [], ["b"]];
+const arrayAsString = '["tata",false,3,null,null,{},{"titi":"a"},[],["b"]]';
+const object = {test: "c"};
+const objectAsString = '{"test":"c"}';
+
+tryTest("Test with \"toto\"", () => string.asString(), stringAsString);
+tryTest("Test with true", () => boolean.asString(), booleanAsString);
+tryTest("Test with 2", () => number.asString(), numberAsString);
+tryTest("Test with [\"tata\", false, 3, null, undefined, {}, {titi: \"a\"}, [], [\"b\"]]", () => array.asString(), arrayAsString);
+tryTest("Test with {test: \"c\"}", () => object.asString(), objectAsString);
+tryTest("Test with null", () => (null).asString(), null, "Cannot read properties of null (reading 'asString')");
+tryTest("Test with undefined", () => (undefined).asString(), undefined, "Cannot read properties of undefined (reading 'asString')");
+
+
 // TEST for the average function
 console.log("\n\x1b[90m\x1b[1m--- TEST for the average function ---\x1b[0m");
 tryTest("Test with array of numbers", () => average([1, 3, 4, 5]), 3.25);
