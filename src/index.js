@@ -1,5 +1,5 @@
 /**
- * Determine if the given variable is empty.
+ * Determine if the variable is empty.
  * @returns {Boolean} - A Boolean
  */
 Object.prototype.isEmpty = function () {
@@ -21,14 +21,14 @@ function isSet(variable) {
   );
 }
 
-function areSet(strict = true, ...variables) {
+function areSet(strict, ...variables) {
   if(!strict) return variables.some(variable => isSet(variable));
   else return variables.every(variable => isSet(variable));
 }
 
 /**
- * Convert the given variable into a string.
- * @returns - A string
+ * Convert the variable into a string.
+ * @returns {String} - A string
  */
 Object.prototype.asString = function () {
   if(this instanceof String) {

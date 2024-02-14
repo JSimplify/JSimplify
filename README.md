@@ -2,8 +2,8 @@
 
 ![JSimplify logo](https://github.com/JSimplify/JSimplify/assets/96381087/024094d1-3896-417d-a819-558a7c270dca)
 
-
 JSimplify : additionnal functions and javascript improvements.
+
 
 ## Main Objectives
 
@@ -15,32 +15,39 @@ Here is a list of all the functions present in this project. The list is divided
 
 ### New functions
 
--
--
--
--
+| Function | Description | Usage |
+|:---------|:------------|:------|
+| isSet(variable) | Determine if the given variable is set.<br>**not null and not undefined**. | `isSet("toto")` |
+| areSet(strict, ...variables) | Determine if the given variables are set.<br>if strict set to true, all variables must be **not null and not undefined**.<br>if stric set to false, only one must be **not null and not undefined**. | `areSet(true, "toto", 2)`<br>`areSet(false, ["toto", 2])` |
+| average(array, round?) | Calculate the average value of an array of numbers. | `average([1, 2, 3])`<br>`average([3, 3], 1)` |
+| roundPrecisely(number, precision) | Round a number to the given precision. | `roundPrecisely(1402.20241607, 4)`<br>`roundPrecisely(1402.20241607, -2)` |
 
 ### Rewriten functions
 
--
--
--
--
+| Function | Description | Usage |
+|:---------|:------------|:------|
+| Object.prototype.isEmpty() | Determine if the variable is emptyu.<br>**[], {}, or ""**. | `[].isEmpty()` |
+| Object.prototype.asString() | Convert the variable into a string. | `{toto: "test"}.asString()` |
+
 
 ## How to use
 
 ### Installation
 
+In a terminal, run the following command
+```Bash
+npm install jsimplify
+```
 
 ### Tests
 
 In a terminal, run the following command
-```
+```Bash
 npm run jsimplify_tests
 ```
 
-## Issues & Pull requests
 
+## Issues & Pull requests
 
 In order to participate in this project, you must create an issue following the various available templates (bug, improvement, new features, issue).
 
