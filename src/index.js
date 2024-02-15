@@ -54,19 +54,31 @@ Math.average = function (...numbers) {
     throw new Error("The list must have at least one number");
   }
 
-  let sum = 0;
-  for(const number of numbers) {
+  return Math.sum(numbers) / numbers.length;
+}
+
+/**
+ * Calculate the sum value of a list of numbers.
+ * @param  {...Number} numbers Any number of numbers or Number[]. Number as string will be converted.
+ * @returns {Number} Number
+ */
+Math.sum = function (...numbers) {
+  numbers = numbers.flat(Infinity);
+  
+  if(numbers.length <= 0) {
+    throw new Error("The list must have at least one number");
+  }
+
+  return numbers.reduce((sum, number) => {
     const numbered = Number(number);
 
     if(typeof number === "number" || typeof number === "string" && !isNaN(numbered)) {
-      sum += numbered;
+      return sum + numbered;
     }
     else {
       throw new Error("The given list must be only numbers (or numbers as string)");
     }
-  }
-
-  return sum / numbers.length;
+  }, 0);
 }
 
 function roundPrecisely(number, precision) {
