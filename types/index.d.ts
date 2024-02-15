@@ -16,10 +16,13 @@ export function isSet(variable: any): boolean;
  */
 export function areSet(strict: boolean, ...variables: any): boolean;
 
-/**
- * Round a number to the given precision.
- * @param number - The number to round
- * @param precision - The precision to use for the decimal part
- * @returns The rounded number
- */
-export function roundPrecisely(number: number, precision: number): number;
+
+// export class Math {
+export interface Math {
+    /**
+     * Calculate the sum value of a list of numbers.
+     * @param variables - Any number of numbers or Number[]. Number as string will be converted.
+     * @returns {Number}
+     */
+    sum(...variables: Array<Number>): Number
+}

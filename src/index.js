@@ -81,13 +81,31 @@ Math.sum = function (...numbers) {
   }, 0);
 }
 
-function roundPrecisely(number, precision) {
-  const factor = Math.pow(10, precision);
-  return Math.round(number * factor) / factor;
+/**
+ * Round a number to the given precision.
+ * @param {Number} number The number to round.
+ * @param {Number} precision The precision of the round. Represente the unit of the number table.
+ * @returns {Number} Number
+ */
+Math.roundPrecisely = function(number, precision) {
+  const numberNumbered = Number(number);
+  const precisionNumbered = Number(precision);
+
+  if(typeof number === "number" || typeof number === "string" && !isNaN(numberNumbered)) {
+    if(typeof precision === "number" || typeof precision === "string" && !isNaN(precisionNumbered)) {
+      const factor = Math.pow(10, -precision);
+      return Math.round(number * factor) / factor;
+    }
+    else {
+      throw new Error("The given precision is not a number (or a number as string)");
+    }
+  }
+  else {
+    throw new Error("The given number is not a number (or a number as string)");
+  }
 }
 
 module.exports = {
   isSet: isSet,
   areSet: areSet,
-  roundPrecisely: roundPrecisely,
 };

@@ -37,7 +37,6 @@ Here is a list of all the functions present in this project. The list is divided
 |:---------|:------------|:------|
 | isSet(variable) | Determine if the given variable is set.<br>**not null and not undefined**. | `isSet("toto")` |
 | areSet(strict, ...variables) | Determine if the given variables are set.<br>if strict set to true, all variables must be **not null and not undefined**.<br>if stric set to false, only one must be **not null and not undefined**. | `areSet(true, "toto", 2)`<br>`areSet(false, ["toto", 2])` |
-| roundPrecisely(number, precision) | Round a number to the given precision. | `roundPrecisely(1402.20241607, 4)`<br>`roundPrecisely(1402.20241607, -2)` |
 
 ### Rewriten functions
 
@@ -47,6 +46,7 @@ Here is a list of all the functions present in this project. The list is divided
 | Object.prototype.asString() | Convert the variable into a string. | `{toto: "test"}.asString()` |
 | Math.average(...numbers) | Calculate the average value of a list of numbers. | `Math.average(1, 2, 3)`<br>`Math.average(1, [2, 3, ["4", "5"]])` |
 | Math.sum(...numbers) | Calculate the sum value of a list of numbers. | `Math.sum(1, 2, 3)`<br>`Math.sum(1, [2, 3, ["4", "5"]])` |
+| Math.roundPrecisely(number, precision) | Round a number to the given precision. | `Math.roundPrecisely(378.245, 2)`<br>`Math.roundPrecisely(378.245, -1)` |
 
 
 ## Issues & Pull requests

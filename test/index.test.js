@@ -1,5 +1,5 @@
 const assert = require("assert");
-const { isSet, roundPrecisely, areSet } = require("../src");
+const { isSet, areSet } = require("../src");
 const areSetFixtures = require("./areSet.fixtures");
 
 let totalTests = 0;
@@ -160,14 +160,13 @@ tryTest("Test with undefined", () => Math.sum(undefined), null, "The given list 
 
 // TEST for the roundPrecisely function
 console.log("\n\x1b[90m\x1b[1m--- TEST for the roundPrecisely function ---\x1b[0m");
-tryTest("Test with 1.2345 and 2", () => roundPrecisely(1.2345, 2), 1.23);
-tryTest("Test with 1.235 and 2", () => roundPrecisely(1.235, 2), 1.24);
-tryTest("Test with 1.2345 and 3", () => roundPrecisely(1.2345, 3), 1.235);
-tryTest("Test with 1.2345 and 4", () => roundPrecisely(1.2345, 4), 1.2345);
-tryTest("Test with 1.2345 and 5", () => roundPrecisely(1.2345, 5), 1.2345);
-tryTest("Test with 1.2345 and 6", () => roundPrecisely(1.2345, 6), 1.2345);
-tryTest("Test with 1.2345 and 0", () => roundPrecisely(1.2345, 0), 1);
-tryTest("Test with 2387 and -1", () => roundPrecisely(2387, -1), 2390);
-tryTest("Test with 2387 and -2", () => roundPrecisely(2387, -2), 2400);
-tryTest("Test with 2387 and -3", () => roundPrecisely(2387, -3), 2000);
-tryTest("Test with 2387 and -4", () => roundPrecisely(2387, -4), 0);
+tryTest("Test with 387.245 and -4", () => Math.roundPrecisely(387.245, -4), 387.245);
+tryTest("Test with 387.245 and -3", () => Math.roundPrecisely(387.245, -3), 387.245);
+tryTest("Test with 387.245 and -2", () => Math.roundPrecisely(387.245, -2), 387.25);
+tryTest("Test with 387.245 and -1", () => Math.roundPrecisely(387.245, -1), 387.2);
+tryTest("Test with 387.245 and -0", () => Math.roundPrecisely(387.245, -0), 387);
+tryTest("Test with 387.245 and 0", () => Math.roundPrecisely(387.245, 0), 387);
+tryTest("Test with 387.245 and 1", () => Math.roundPrecisely(387.245, 1), 390);
+tryTest("Test with 387.245 and 2", () => Math.roundPrecisely(387.245, 2), 400);
+tryTest("Test with 387.245 and 3", () => Math.roundPrecisely(387.245, 3), 0);
+tryTest("Test with 387.245 and 4", () => Math.roundPrecisely(387.245, 4), 0);
