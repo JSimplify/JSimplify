@@ -15,3 +15,14 @@ export function isSet(variable: any): boolean;
  * - If `strict` is set to `false`, `true` if **at least one** of the variables is set, `false` otherwise.
  */
 export function areSet(strict: boolean, ...variables: any): boolean;
+
+
+// export class Math {
+export interface Math {
+    /**
+     * Calculate the sum value of a list of numbers.
+     * @param variables - Any number of numbers or Number[]. Number as string will be converted.
+     * @returns {Number}
+     */
+    sum(...variables: Array<Number>): Number
+}
