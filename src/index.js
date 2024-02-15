@@ -42,21 +42,31 @@ Object.prototype.asString = function () {
   }
 }
 
-function average(array, round = 0) {
-  if(array.isEmpty()) {
-    throw new Error("The array is empty or it's not an array");
+/**
+ * Calculate the average value of a list of numbers.
+ * @param {...Number} numbers Any number of numbers or Number[]. Number as string will be converted.
+ * @returns {Number} Number
+ */
+Math.average = function (...numbers) {
+  numbers = numbers.flat(Infinity);
+
+  if(numbers.length <= 0) {
+    throw new Error("The list must have at least one number");
   }
 
   let sum = 0;
-  for(const num of array) {
-    if(!isSet(num) || (typeof num === "string" && isNaN(Number(num)))) {
-      throw new Error("The array must contain only numbers");
-    }
+  for(const number of numbers) {
+    const numbered = Number(number);
 
-    sum += typeof num === "string" ? Number(num) : num;
+    if(typeof number === "number" || typeof number === "string" && !isNaN(numbered)) {
+      sum += numbered;
+    }
+    else {
+      throw new Error("The given list must be only numbers (or numbers as string)");
+    }
   }
 
-  return round ? roundPrecisely(sum / array.length, round) : sum / array.length;
+  return sum / numbers.length;
 }
 
 function roundPrecisely(number, precision) {
@@ -65,7 +75,6 @@ function roundPrecisely(number, precision) {
 }
 
 module.exports = {
-  average: average,
   isSet: isSet,
   areSet: areSet,
   roundPrecisely: roundPrecisely,

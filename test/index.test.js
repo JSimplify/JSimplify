@@ -1,5 +1,5 @@
 const assert = require("assert");
-const { average, isSet, roundPrecisely, areSet } = require("../src");
+const { isSet, roundPrecisely, areSet } = require("../src");
 const areSetFixtures = require("./areSet.fixtures");
 
 let totalTests = 0;
@@ -132,12 +132,16 @@ tryTest("Test with undefined", () => (undefined).asString(), undefined, "Cannot 
 
 // TEST for the average function
 console.log("\n\x1b[90m\x1b[1m--- TEST for the average function ---\x1b[0m");
-tryTest("Test with array of numbers", () => average([1, 3, 4, 5]), 3.25);
-tryTest("Test with array of numbers and string", () => average([1, 3, 4, 5, "5"]), 3.6);
-tryTest("Test with array of decimal (rounded on 2 digits)", () => average([1, 3, 4, 5.5], 2), 3.38);
-tryTest("Test with array of decimal (rounded off)", () => average([1, 3, 4, 5.5], 0), 3.375);
-tryTest("Test with mixed types", () => average([1, 3, 4, 5, true, [], "ok"]), null, "The array must contain only numbers");
-tryTest("Test with empty array", () => average([]), null, "The array is empty or it's not an array");
+tryTest("Test with array of numbers", () => Math.average([1, 3, 4, 5]), 3.25);
+tryTest("Test with array of numbers and string as number", () => Math.average([1, 3, 4, 5, "5"]), 3.6);
+tryTest("Test with array of numbers with array of numbers in", () => Math.average([1, 3, 4, 5, [7, 4]]), 4);
+tryTest("Test with array of numbers and string", () => Math.average([1, 3, 4, 5, "ok"]), null, "The given list must be only numbers (or numbers as string)");
+tryTest("Test with array of numbers and bool", () => Math.average([1, 3, 4, 5, true]), null, "The given list must be only numbers (or numbers as string)");
+tryTest("Test with array of numbers with empty array in", () => Math.average([1, 3, 4, 5, []]), 3.25);
+tryTest("Test with array of numbers with empty object in", () => Math.average([1, 3, 4, 5, {}]), null, "The given list must be only numbers (or numbers as string)");
+tryTest("Test with no values", () => Math.average(), null, "The list must have at least one number");
+tryTest("Test with null", () => Math.average(null), null, "The given list must be only numbers (or numbers as string)");
+tryTest("Test with undefined", () => Math.average(undefined), null, "The given list must be only numbers (or numbers as string)");
 
 
 // TEST for the roundPrecisely function
