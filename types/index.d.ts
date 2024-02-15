@@ -15,11 +15,3 @@ export function isSet(variable: any): boolean;
  * - If `strict` is set to `false`, `true` if **at least one** of the variables is set, `false` otherwise.
  */
 export function areSet(strict: boolean, ...variables: any): boolean;
-
-/**
- * Round a number to the given precision.
- * @param number - The number to round
- * @param precision - The precision to use for the decimal part
- * @returns The rounded number
- */
-export function roundPrecisely(number: number, precision: number): number;
