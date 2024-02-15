@@ -144,6 +144,20 @@ tryTest("Test with null", () => Math.average(null), null, "The given list must b
 tryTest("Test with undefined", () => Math.average(undefined), null, "The given list must be only numbers (or numbers as string)");
 
 
+// TEST for the sum function
+console.log("\n\x1b[90m\x1b[1m--- TEST for the sum function ---\x1b[0m");
+tryTest("Test with array of numbers", () => Math.sum([1, 3, 4, 5]), 13);
+tryTest("Test with array of numbers and string as number", () => Math.sum([1, 3, 4, 5, "5"]), 18);
+tryTest("Test with array of numbers with array of numbers in", () => Math.sum([1, 3, 4, 5, [7, 4]]), 24);
+tryTest("Test with array of numbers and string", () => Math.sum([1, 3, 4, 5, "ok"]), null, "The given list must be only numbers (or numbers as string)");
+tryTest("Test with array of numbers and bool", () => Math.sum([1, 3, 4, 5, true]), null, "The given list must be only numbers (or numbers as string)");
+tryTest("Test with array of numbers with empty array in", () => Math.sum([1, 3, 4, 5, []]), 13);
+tryTest("Test with array of numbers with empty object in", () => Math.sum([1, 3, 4, 5, {}]), null, "The given list must be only numbers (or numbers as string)");
+tryTest("Test with no values", () => Math.sum(), null, "The list must have at least one number");
+tryTest("Test with null", () => Math.sum(null), null, "The given list must be only numbers (or numbers as string)");
+tryTest("Test with undefined", () => Math.sum(undefined), null, "The given list must be only numbers (or numbers as string)");
+
+
 // TEST for the roundPrecisely function
 console.log("\n\x1b[90m\x1b[1m--- TEST for the roundPrecisely function ---\x1b[0m");
 tryTest("Test with 1.2345 and 2", () => roundPrecisely(1.2345, 2), 1.23);

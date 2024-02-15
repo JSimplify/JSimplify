@@ -43,9 +43,10 @@ Here is a list of all the functions present in this project. The list is divided
 
 | Function | Description | Usage |
 |:---------|:------------|:------|
-| Object.prototype.isEmpty() | Determine if the variable is emptyu.<br>**[], {}, or ""**. | `[].isEmpty()` |
+| Object.prototype.isEmpty() | Determine if the variable is empty.<br>**[], {}, or ""**. | `[].isEmpty()` |
 | Object.prototype.asString() | Convert the variable into a string. | `{toto: "test"}.asString()` |
-| Math.average(...numbers) | Calculate the average value of a list of numbers | `Math.average(1, 2, 3)`<br>`Math.average(1, [2, 3, ["4", "5"]])` |
+| Math.average(...numbers) | Calculate the average value of a list of numbers. | `Math.average(1, 2, 3)`<br>`Math.average(1, [2, 3, ["4", "5"]])` |
+| Math.sum(...numbers) | Calculate the sum value of a list of numbers. | `Math.sum(1, 2, 3)`<br>`Math.sum(1, [2, 3, ["4", "5"]])` |
 
 
 ## Issues & Pull requests
