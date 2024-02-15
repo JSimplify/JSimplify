@@ -26,3 +26,24 @@ export interface Math {
      */
     sum(...variables: Array<Number>): Number
 }
+
+interface Math {
+    /**
+     * Calculate the average value of a list of numbers.
+     * @param variables - Any number of numbers or Number[]. Number as string will be converted.
+     * @returns {Number}
+     */
+    average(...variables: Array<Number>): Number
+}
+
+declare global {
+    interface Math {
+        /**
+         * Round a number to the given precision.
+         * @param {Number} number - The number to round.
+         * @param {Number} precision - The precision of the round. Represente the unit of the number table.
+         * @returns {Number} Number
+         */
+        roundPrecisely(number: Number, precision: Number): Number
+    }
+}

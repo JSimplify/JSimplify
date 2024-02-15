@@ -43,7 +43,7 @@ Object.prototype.asString = function () {
 }
 
 /**
- * Calculate the average value of a list of numbers.
+ * tata
  * @param {...Number} numbers Any number of numbers or Number[]. Number as string will be converted.
  * @returns {Number} Number
  */
@@ -58,7 +58,7 @@ Math.average = function (...numbers) {
 }
 
 /**
- * Calculate the sum value of a list of numbers.
+ * toto
  * @param  {...Number} numbers Any number of numbers or Number[]. Number as string will be converted.
  * @returns {Number} Number
  */
@@ -82,7 +82,7 @@ Math.sum = function (...numbers) {
 }
 
 /**
- * Round a number to the given precision.
+ * titi.
  * @param {Number} number The number to round.
  * @param {Number} precision The precision of the round. Represente the unit of the number table.
  * @returns {Number} Number
