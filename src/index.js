@@ -70,10 +70,10 @@ Math.sum = function (...numbers) {
   }
 
   return numbers.reduce((sum, number) => {
-    const numbered = Number(number);
+    const numberNumbered = Number(number);
 
-    if(typeof number === "number" || typeof number === "string" && !isNaN(numbered)) {
-      return sum + numbered;
+    if(typeof number === "number" || typeof number === "string" && !isNaN(numberNumbered)) {
+      return sum + numberNumbered;
     }
     else {
       throw new Error("The given list must be only numbers (or numbers as string)");

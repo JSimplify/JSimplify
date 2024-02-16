@@ -17,27 +17,22 @@ export function isSet(variable: any): boolean;
 export function areSet(strict: boolean, ...variables: any): boolean;
 
 
-// export class Math {
-export interface Math {
-    /**
-     * Calculate the sum value of a list of numbers.
-     * @param variables - Any number of numbers or Number[]. Number as string will be converted.
-     * @returns {Number}
-     */
-    sum(...variables: Array<Number>): Number
-}
-
-interface Math {
-    /**
-     * Calculate the average value of a list of numbers.
-     * @param variables - Any number of numbers or Number[]. Number as string will be converted.
-     * @returns {Number}
-     */
-    average(...variables: Array<Number>): Number
-}
-
 declare global {
     interface Math {
+        /**
+         * Calculate the average value of a list of numbers.
+         * @param variables - Any number of numbers or Number[]. Number as string will be converted.
+         * @returns {Number}
+         */
+        average(...variables: Array<Number>): Number
+
+        /**
+         * Calculate the sum value of a list of numbers.
+         * @param variables - Any number of numbers or Number[]. Number as string will be converted.
+         * @returns {Number}
+         */
+        sum(...variables: Array<Number>): Number
+
         /**
          * Round a number to the given precision.
          * @param {Number} number - The number to round.
@@ -45,5 +40,12 @@ declare global {
          * @returns {Number} Number
          */
         roundPrecisely(number: Number, precision: Number): Number
+    }
+
+    interface Object {
+        /**
+         * asString
+         */
+        asString(): String
     }
 }
