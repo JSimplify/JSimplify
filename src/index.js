@@ -14,6 +14,7 @@ Object.prototype.isEmpty = function () {
   }
 }
 
+
 function isSet(variable) {
   return (
     variable !== undefined &&
@@ -21,10 +22,12 @@ function isSet(variable) {
   );
 }
 
+
 function areSet(strict, ...variables) {
   if(!strict) return variables.some(variable => isSet(variable));
   else return variables.every(variable => isSet(variable));
 }
+
 
 /**
  * Convert the variable into a string.
@@ -42,11 +45,7 @@ Object.prototype.asString = function () {
   }
 }
 
-/**
- * tata
- * @param {...Number} numbers Any number of numbers or Number[]. Number as string will be converted.
- * @returns {Number} Number
- */
+
 Math.average = function (...numbers) {
   numbers = numbers.flat(Infinity);
 
@@ -57,11 +56,7 @@ Math.average = function (...numbers) {
   return Math.sum(numbers) / numbers.length;
 }
 
-/**
- * toto
- * @param  {...Number} numbers Any number of numbers or Number[]. Number as string will be converted.
- * @returns {Number} Number
- */
+
 Math.sum = function (...numbers) {
   numbers = numbers.flat(Infinity);
   
@@ -81,12 +76,7 @@ Math.sum = function (...numbers) {
   }, 0);
 }
 
-/**
- * titi.
- * @param {Number} number The number to round.
- * @param {Number} precision The precision of the round. Represente the unit of the number table.
- * @returns {Number} Number
- */
+
 Math.roundPrecisely = function(number, precision) {
   const numberNumbered = Number(number);
   const precisionNumbered = Number(precision);
@@ -104,6 +94,7 @@ Math.roundPrecisely = function(number, precision) {
     throw new Error("The given number is not a number (or a number as string)");
   }
 }
+
 
 module.exports = {
   isSet: isSet,

@@ -42,10 +42,17 @@ declare global {
         roundPrecisely(number: Number, precision: Number): Number
     }
 
-    interface Object {
+    interface String {
         /**
          * asString
          */
         asString(): String
+    }
+
+    interface Array {
+        /**
+         * isEmpty
+         */
+        isEmpty(): Boolean
     }
 }
