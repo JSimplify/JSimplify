@@ -1,4 +1,4 @@
-const { isSet } = require("./isSet/isSet");
+const { isSet } = require("../isSet/isSet");
 
 function areSet(strict, ...variables) {
   if(!strict) return variables.some(variable => isSet(variable));
