@@ -3,7 +3,7 @@
  * @returns {Boolean} - A Boolean
  */
 Object.prototype.isEmpty = function () {
-  if(this instanceof Number || this instanceof Boolean) {
+  if(this instanceof Number || this instanceof Boolean || this instanceof Function) {
     return false;
   }
   else if(this instanceof Array || this instanceof String) {
@@ -37,7 +37,7 @@ Object.prototype.asString = function () {
   if(this instanceof String) {
     return this.toString();
   }
-  else if(this instanceof Number || this instanceof Boolean) {
+  else if(this instanceof Number || this instanceof Boolean || this instanceof Function) {
     return `${this}`;
   }
   else {

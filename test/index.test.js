@@ -48,6 +48,7 @@ tryTest("Test with NaN", () => NaN.isEmpty(), false);
 tryTest("Test with true", () => true.isEmpty(), false);
 tryTest("Test with null", () => (null).isEmpty(), null, "Cannot read properties of null (reading 'isEmpty')");
 tryTest("Test with undefined", () => (undefined).isEmpty(), undefined, "Cannot read properties of undefined (reading 'isEmpty')");
+tryTest("Test with function", () => (() => {}).isEmpty(), false);
 
 
 // TEST for the isSet function
@@ -120,6 +121,8 @@ const array = ["tata", false, 3, null, undefined, {}, {titi: "a"}, [], ["b"]];
 const arrayAsString = '["tata",false,3,null,null,{},{"titi":"a"},[],["b"]]';
 const object = {test: "c"};
 const objectAsString = '{"test":"c"}';
+const func = () => {};
+const funcAsString = "() => {}";
 
 tryTest("Test with \"toto\"", () => string.asString(), stringAsString);
 tryTest("Test with true", () => boolean.asString(), booleanAsString);
@@ -128,6 +131,7 @@ tryTest("Test with [\"tata\", false, 3, null, undefined, {}, {titi: \"a\"}, [], 
 tryTest("Test with {test: \"c\"}", () => object.asString(), objectAsString);
 tryTest("Test with null", () => (null).asString(), null, "Cannot read properties of null (reading 'asString')");
 tryTest("Test with undefined", () => (undefined).asString(), undefined, "Cannot read properties of undefined (reading 'asString')");
+tryTest("Test with function", () => func.asString(), funcAsString);
 
 
 // TEST for the average function
