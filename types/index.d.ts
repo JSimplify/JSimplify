@@ -44,15 +44,22 @@ declare global {
 
     interface String {
         /**
-         * asString
+         * asString in declare global > interface String
          */
         asString(): String
     }
 
     interface Array {
         /**
-         * isEmpty
+         * isEmpty in declare global > interface Array
          */
         isEmpty(): Boolean
+    }
+
+    interface Object {
+        /**
+         * trySomething in declare global > interface Object
+         */
+        trySomething(): void
     }
 }
