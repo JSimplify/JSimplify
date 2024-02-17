@@ -5,9 +5,11 @@
 JSimplify : additionnal functions and javascript improvements.
 
 
+
 ## Main Objectives
 
 The main objective for this project is to provide additionnal functions to javascript and to rewrite native function in order to improve them.
+
 
 
 ## How to use
@@ -19,6 +21,7 @@ In a terminal, run the following command
 npm install jsimplify
 ```
 
+
 ### Tests
 
 In a terminal, run the following command
@@ -27,9 +30,11 @@ npm run jsimplify_tests
 ```
 
 
+
 ## Key Features
 
 Here is a list of all the functions present in this project. The list is divided into two parts, the first one concerns the new functions, and the second one, the JavaScript functions that we have rewritten.
+
 
 ### New functions
 
@@ -38,15 +43,24 @@ Here is a list of all the functions present in this project. The list is divided
 | isSet(variable) | Determine if the given variable is set.<br>**not null and not undefined**. | `isSet("toto")` |
 | areSet(strict, ...variables) | Determine if the given variables are set.<br>if strict set to true, all variables must be **not null and not undefined**.<br>if stric set to false, only one must be **not null and not undefined**. | `areSet(true, "toto", 2)`<br>`areSet(false, ["toto", 2])` |
 
+
 ### Rewriten functions
 
 | Function | Description | Usage |
 |:---------|:------------|:------|
-| Object.prototype.isEmpty() | Determine if the variable is empty.<br>**[], {}, or ""**. | `[].isEmpty()` |
-| Object.prototype.asString() | Convert the variable into a string. | `{toto: "test"}.asString()` |
+| Object.prototype.isEmpty() | Determine if the object is empty : `{}`. | `({}).isEmpty()` |
+| Array.prototype.isEmpty() | Determine if the array is empty `[]`. | `[].isEmpty()` |
+| String.prototype.isEmpty() | Determine if the string is empty `""`. | `"".isEmpty()` |
+| Object.prototype.asString() | Convert the object into a string. | `({}).asString()` |
+| Array.prototype.asString() | Convert the array into a string. | `[].asString()` |
+| String.prototype.asString() | Convert the string into a string. | `"".asString()` |
+| Number.prototype.asString() | Convert the number into a string. | `(2).asString()` |
+| Boolean.prototype.asString() | Convert the boolean into a string. | `(true).asString()` |
+| Function.prototype.asString() | Convert the function into a string. | `(() => {}).asString()` |
 | Math.average(...numbers) | Calculate the average value of a list of numbers. | `Math.average(1, 2, 3)`<br>`Math.average(1, [2, 3, ["4", "5"]])` |
 | Math.sum(...numbers) | Calculate the sum value of a list of numbers. | `Math.sum(1, 2, 3)`<br>`Math.sum(1, [2, 3, ["4", "5"]])` |
 | Math.roundPrecisely(number, precision) | Round a number to the given precision. | `Math.roundPrecisely(378.245, 2)`<br>`Math.roundPrecisely(378.245, -1)` |
+
 
 
 ## Issues & Pull requests
@@ -64,3 +78,9 @@ Here are some important rules to follow for issues:
 - You must adhere to the code of conduct during any interaction with the project's community.
 
 - If you wish to participate in the project, please refer to INTERNAL.md to understand the rules and standards established for the project.
+
+
+
+## Know issues
+
+* The autocompletion for rewritten object function doesn't work, the function will not appeaer in the selection menu. Howerver, once the function is written, the documentation window will appear correctly.
