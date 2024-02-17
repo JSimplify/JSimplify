@@ -1,17 +1,18 @@
-/**
- * Determine if the variable is empty.
- * @returns {Boolean} - A Boolean
- */
 Object.prototype.isEmpty = function () {
   if(this instanceof Number || this instanceof Boolean || this instanceof Function) {
     return false;
   }
-  else if(this instanceof Array || this instanceof String) {
-    return this.length === 0;
-  }
   else {
     return Object.keys(this).length === 0;
   }
+}
+
+Array.prototype.isEmpty = function () {
+  return this.length === 0;
+}
+
+String.prototype.isEmpty = function () {
+  return this.length === 0;
 }
 
 
@@ -29,20 +30,28 @@ function areSet(strict, ...variables) {
 }
 
 
-/**
- * Convert the variable into a string.
- * @returns {String} - A string
- */
 Object.prototype.asString = function () {
-  if(this instanceof String) {
-    return this.toString();
-  }
-  else if(this instanceof Number || this instanceof Boolean || this instanceof Function) {
-    return `${this}`;
-  }
-  else {
-    return JSON.stringify(this);
-  }
+  return JSON.stringify(this);
+}
+
+Array.prototype.asString = function () {
+  return JSON.stringify(this);
+}
+
+String.prototype.asString = function () {
+  return this.toString();
+}
+
+Number.prototype.asString = function () {
+  return this.toString();
+}
+
+Boolean.prototype.asString = function () {
+  return this.toString();
+}
+
+Function.prototype.asString = function () {
+  return this.toString();
 }
 
 

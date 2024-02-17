@@ -42,24 +42,60 @@ declare global {
         roundPrecisely(number: Number, precision: Number): Number
     }
 
-    interface String {
+    interface Object {
         /**
-         * asString in declare global > interface String
+         * Determine if the object is empty : `{}`.
+         */
+        isEmpty(): Boolean
+
+        /**
+         * Convert the object into a string.
          */
         asString(): String
     }
 
     interface Array {
         /**
-         * isEmpty in declare global > interface Array
+         * Determine if the array is empty : `[]`.
          */
         isEmpty(): Boolean
+
+        /**
+         * Convert the array into a string.
+         */
+        asString(): String
     }
 
-    interface Object {
+    interface String {
         /**
-         * trySomething in declare global > interface Object
+         * Determine if the string is empty : `""`.
          */
-        trySomething(): void
+        isEmpty(): Boolean
+
+        /**
+         * Convert the string into a string.
+         */
+        asString(): String
+    }
+
+    interface Number {
+        /**
+         * Convert the number into a string.
+         */
+        asString(): String
+    }
+
+    interface Boolean {
+        /**
+         * Convert the boolean into a string.
+         */
+        asString(): String
+    }
+
+    interface Function {
+        /**
+         * Convert the function into a string.
+         */
+        asString(): String
     }
 }
