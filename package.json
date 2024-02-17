@@ -3,7 +3,7 @@
   "version": "0.9.6",
   "description": "Additionnal functions and Js improvement",
   "main": "src/index.js",
-  "types": "types/index.d.ts",
+  "types": "src/index.d.ts",
   "scripts": {
     "jsimplify_tests": "node test/index.test.js"
   },
